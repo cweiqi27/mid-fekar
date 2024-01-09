@@ -1,0 +1,125 @@
+{
+  "include": ["src", "tsup.config.ts", "reset.d.ts"],
+  "exclude": ["node_modules", "dist", "tests"],
+  "compilerOptions": {
+    "incremental": true,
+    "target": "es2022",
+    "moduleDetection": "force",
+    "verbatimModuleSyntax": true,
+    "allowJs": true,
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "declaration": true,
+    "removeComments": true,
+    "sourceMap": true,
+    "outDir": "dist",
+    "esModuleInterop": true,
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "lib": ["es2022"],
+    "skipLibCheck": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+
+    "plugins": [
+      {
+        "name": "@unsplash/ts-namespace-import-plugin",
+        "namespaces": {
+          "A": {
+            "importPath": "fp-ts/lib/Array.js"
+          },
+          "B": {
+            "importPath": "fp-ts/lib/boolean.js"
+          },
+          "C": {
+            "importPath": "fp-ts/lib/Console.js"
+          },
+          "D": {
+            "importPath": "fp-ts/lib/Date.js"
+          },
+          "E": {
+            "importPath": "fp-ts/lib/Either.js"
+          },
+          "IO": {
+            "importPath": "fp-ts/lib/IO.js"
+          },
+          "IOE": {
+            "importPath": "fp-ts/lib/IOEither.js"
+          },
+          "IOO": {
+            "importPath": "fp-ts/lib/IOOption.js"
+          },
+          "J": {
+            "importPath": "fp-ts/lib/Json.js"
+          },
+          "N": {
+            "importPath": "fp-ts/lib/number.js"
+          },
+          "NEA": {
+            "importPath": "fp-ts/lib/NonEmptyArray.js"
+          },
+          "O": {
+            "importPath": "fp-ts/lib/Option.js"
+          },
+          "P": {
+            "importPath": "fp-ts/lib/Predicate.js"
+          },
+          "R": {
+            "importPath": "fp-ts/lib/Reader.js"
+          },
+          "RA": {
+            "importPath": "fp-ts/lib/ReadonlyArray.js"
+          },
+          "RE": {
+            "importPath": "fp-ts/lib/ReaderEither.js"
+          },
+          "RIO": {
+            "importPath": "fp-ts/lib/ReaderIO.js"
+          },
+          "RNEA": {
+            "importPath": "fp-ts/lib/ReadonlyNonEmptyArray.js"
+          },
+          "RT": {
+            "importPath": "fp-ts/lib/ReaderTask.js"
+          },
+          "RTE": {
+            "importPath": "fp-ts/lib/ReaderTaskEither.js"
+          },
+          "S": {
+            "importPath": "fp-ts/lib/string.js"
+          },
+          "T": {
+            "importPath": "fp-ts/lib/Task.js"
+          },
+          "TE": {
+            "importPath": "fp-ts/lib/TaskEither.js"
+          },
+          "TO": {
+            "importPath": "fp-ts/lib/TaskOption.js"
+          },
+          "TU": {
+            "importPath": "fp-ts/lib/Tuple.js"
+          },
+
+          // Helpers
+          "boilerplateHelper": {
+            "importPath": "~/helpers/boilerplate/boilerplate.helper.js"
+          },
+          "fileIoHelper": {
+            "importPath": "~/helpers/file-io.helper.js"
+          },
+          "scaffoldHelper": {
+            "importPath": "~/helpers/scaffold/scaffold.helper.js"
+          },
+          "createProjectHelper": {
+            "importPath": "~/helpers/create-project/create-project.helper.js"
+          },
+          "insertTemplateHelper": {
+            "importPath": "~/helpers/insert-template.helper.js"
+          }
+        }
+      }
+    ]
+  }
+}
