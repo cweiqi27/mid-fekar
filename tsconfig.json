@@ -101,25 +101,17 @@
           "TU": {
             "importPath": "fp-ts/lib/Tuple.js"
           },
-
-          // Helpers
-          "boilerplateHelper": {
-            "importPath": "~/helpers/boilerplate/boilerplate.helper.js"
+          "t": {
+            "importPath": "io-ts"
           },
-          "fileIoHelper": {
-            "importPath": "~/helpers/file-io.helper.js"
-          },
-          "scaffoldHelper": {
-            "importPath": "~/helpers/scaffold/scaffold.helper.js"
-          },
-          "createProjectHelper": {
-            "importPath": "~/helpers/create-project/create-project.helper.js"
-          },
-          "insertTemplateHelper": {
-            "importPath": "~/helpers/insert-template.helper.js"
+          "d": {
+            "importPath": "io-ts/lib/Decoder.js"
           }
         }
       }
     ]
+  },
+  "ts-node": {
+    "esm": true
   }
 }
