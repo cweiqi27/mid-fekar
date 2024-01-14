@@ -1,4 +1,5 @@
-import { logger } from '@/common/logger.js'
+import type { ChatInputCommandInteraction } from '@/providers/discord.js'
+import type { CommandsObj } from '@/types/commands.types.js'
 
 export const pingCommand = {
   data: {
@@ -6,5 +7,6 @@ export const pingCommand = {
     type: 1,
     description: 'replies with pong',
   },
-  execute: () => logger.success('lol'),
-} as const
+  execute: (interaction: ChatInputCommandInteraction) =>
+    interaction.reply('pong'),
+} as const satisfies CommandsObj

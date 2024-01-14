@@ -3,9 +3,8 @@ import { pingCommand } from './ping.helper.js'
 
 export const COMMANDS_LOOKUP = {
   ping: pingCommand,
-  // lol: {
-  //   execute: () => logger.success('ere'),
-  // },
+  // lol: pingCommand,
+  // hmm: pingCommand,
 } as const satisfies Record<string, CommandsObj>
 
 export const isRecognizedCommand = (

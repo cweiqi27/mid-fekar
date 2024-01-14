@@ -1,11 +1,11 @@
+import { pipe } from 'fp-ts/lib/function.js'
+import * as O from 'fp-ts/lib/Option.js'
+
 import type {
   CacheType,
   ChatInputCommandInteraction,
   Interaction,
-} from 'discord.js'
-import { pipe } from 'fp-ts/lib/function.js'
-import * as O from 'fp-ts/lib/Option.js'
-
+} from '@/providers/discord.js'
 import { logger } from '@/common/logger.js'
 import { logAndReturn } from '@/common/utils.js'
 import { client, events } from '@/providers/discord.js'
@@ -16,19 +16,33 @@ export const interactionCreate = client.on(
   (interaction) => {
     logger.info(`Listening ${events.InteractionCreate}`)
 
-    pipe(
+    const chatInputInteraction = pipe(
       interaction,
       O.fromPredicate(isChatInputCommand),
-      logAndReturn('isChatInputCommmand'),
+    )
+
+    const isCommand = pipe(
+      chatInputInteraction,
       O.flatMap((cmd) =>
         pipe(cmd.commandName, O.fromPredicate(isRecognizedCommand)),
       ),
+    )
+
+    const combinedOpts = pipe(
+      O.Do,
+      O.bind('chatInput', () => chatInputInteraction),
+      O.bind('commandKeys', () => isCommand),
+    )
+
+    pipe(
+      combinedOpts,
       logAndReturn('isRecognizedCommand'),
       O.match(
         () => {
-          logger.error('wrong command')
+          logger.error('Wrong command')
         },
-        (cmd) => COMMANDS_LOOKUP[cmd].execute(),
+        ({ chatInput, commandKeys }) =>
+          pipe(chatInput, COMMANDS_LOOKUP[commandKeys].execute),
       ),
     )
   },
