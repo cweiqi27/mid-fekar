@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "description": "",
   "scripts": {
-    "build:bot": "pnpm --filter bot build",
-    "start:bot": "pnpm --filter bot start",
-    "dev:bot": "pnpm --filter bot dev"
+    "bot:build": "pnpm --filter bot build",
+    "bot:start": "pnpm --filter bot start",
+    "bot:dev": "pnpm --filter bot dev"
   },
   "keywords": [
     "discord-bot",
