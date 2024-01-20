@@ -1,3 +1,3 @@
-import defaultPrettierConfig from "shared-configs/.prettierrc.cjs";
+import defaultPrettierConfig from '~shared-configs/.prettierrc.cjs'
 
-export default defaultPrettierConfig;
+export default defaultPrettierConfig

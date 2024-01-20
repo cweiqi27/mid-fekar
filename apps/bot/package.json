@@ -39,6 +39,8 @@
     "fp-ts": "^2.16.1",
     "fs-extra": "^11.2.0",
     "io-ts": "^2.2.21",
-    "shared-configs": "workspace:*"
+    "~shared-commands": "workspace:*",
+    "~shared-configs": "workspace:*",
+    "~shared-types": "workspace:*"
   }
 }

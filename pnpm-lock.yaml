@@ -11,6 +11,9 @@ importers:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: ^4.1.1
         version: 4.1.1(prettier@3.2.4)
+      '@total-typescript/ts-reset':
+        specifier: ^0.5.1
+        version: 0.5.1
       prettier:
         specifier: ^3.1.0
         version: 3.2.4
@@ -35,13 +38,16 @@ importers:
       io-ts:
         specifier: ^2.2.21
         version: 2.2.21(fp-ts@2.16.2)
-      shared-configs:
+      ~shared-commands:
+        specifier: workspace:*
+        version: link:../../packages/shared-commands
+      ~shared-configs:
         specifier: workspace:*
         version: link:../../packages/shared-configs
+      ~shared-types:
+        specifier: workspace:*
+        version: link:../../packages/shared-types
     devDependencies:
-      '@total-typescript/ts-reset':
-        specifier: ^0.5.1
-        version: 0.5.1
       '@types/node':
         specifier: ^20.9.4
         version: 20.11.5
@@ -90,16 +96,13 @@ importers:
       npm-run-all:
         specifier: ^4.1.5
         version: 4.1.5
-      shared-commands:
+      ~shared-commands:
         specifier: workspace:*
         version: link:../../packages/shared-commands
-      shared-configs:
+      ~shared-configs:
         specifier: workspace:*
         version: link:../../packages/shared-configs
     devDependencies:
-      '@total-typescript/ts-reset':
-        specifier: ^0.5.1
-        version: 0.5.1
       '@types/node':
         specifier: ^20.9.4
         version: 20.11.5
@@ -142,10 +145,10 @@ importers:
       npm-run-all:
         specifier: ^4.1.5
         version: 4.1.5
-      shared-configs:
+      ~shared-configs:
         specifier: workspace:*
         version: link:../shared-configs
-      shared-types:
+      ~shared-types:
         specifier: workspace:*
         version: link:../shared-types
     devDependencies:
@@ -180,7 +183,7 @@ importers:
 
   packages/shared-types:
     dependencies:
-      shared-configs:
+      ~shared-configs:
         specifier: workspace:*
         version: link:../shared-configs
     devDependencies:

@@ -1,5 +1,5 @@
 {
-  "extends": "shared-configs/tsconfig-default.json",
+  "extends": "~shared-configs/tsconfig-default.json",
   "compilerOptions": {
     "paths": {
       "@/*": ["./src/*"],

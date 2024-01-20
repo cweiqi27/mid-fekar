@@ -1,4 +1,4 @@
-import type { Immutable, ObjectValues } from 'shared-types'
+import type { Immutable, ObjectValues } from '~shared-types'
 
 import type { ChatInputCommandInteraction } from './providers/discord.js'
 import { pingCommand } from './ping.js'
