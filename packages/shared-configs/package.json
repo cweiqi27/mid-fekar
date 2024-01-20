@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "shared-configs",
+  "name": "~shared-configs",
   "version": "0.0.0",
   "description": "",
   "type": "module",
