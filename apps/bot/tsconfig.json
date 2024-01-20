@@ -6,7 +6,6 @@
       "~/*": ["./src/*"],
     },
   },
-
-  "include": ["src", "tsup.config.ts", "reset.d.ts"],
+  "include": ["src", "tsup.config.ts", "../../reset.d.ts"],
   "exclude": ["node_modules", "dist", "tests"],
 }
