@@ -1,5 +1,5 @@
 import type { ChatInputCommandInteraction } from '@/providers/discord.js'
-import type { CommandsObj } from '@/types/commands.types.js'
+import type { CommandsObj } from '@/types/commands.type.js'
 
 export const pingCommand = {
   data: {

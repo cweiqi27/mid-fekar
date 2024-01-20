@@ -1,4 +1,4 @@
-import type { CommandsLookupKeys, CommandsObj } from '@/types/commands.types.js'
+import type { CommandsLookupKeys, CommandsObj } from '@/types/commands.type.js'
 import { pingCommand } from './ping.helper.js'
 
 export const COMMANDS_LOOKUP = {
