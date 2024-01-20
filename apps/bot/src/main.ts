@@ -6,8 +6,7 @@ import type { LoginError } from './common/error.js'
 import { env } from './common/env.js'
 import { genericErrorExit } from './common/error.js'
 import { logger } from './common/logger.js'
-import { deployCommands } from './helpers/commands/deployment.helper.js'
-import { interactionCreate } from './helpers/commands/index.js'
+import { interactionCreate } from './helpers/interaction/interaction.helper.js'
 import { client, events } from './providers/discord.js'
 
 client.once(events.ClientReady, (readyClient) =>
@@ -23,7 +22,5 @@ await pipe(
     pipe('Login success.', logger.success),
   ),
 )()
-
-await deployCommands()
 
 interactionCreate
