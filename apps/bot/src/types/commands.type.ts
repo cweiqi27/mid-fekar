@@ -1,6 +1,6 @@
 import type { COMMANDS_LOOKUP } from '@/helpers/commands/commands.helper.js'
 import type { ChatInputCommandInteraction } from '@/providers/discord.js'
-import type { Immutable, ObjectValues } from './utils.types.js'
+import type { Immutable, ObjectValues } from './utils.type.js'
 
 export type CommandsLookup = typeof COMMANDS_LOOKUP
 export type CommandsLookupKeys = keyof CommandsLookup

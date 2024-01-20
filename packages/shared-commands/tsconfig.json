@@ -5,8 +5,9 @@
       "@/*": ["./src/*"],
       "~/*": ["./src/*"],
     },
+    "rootDir": "src",
+    "outDir": "dist",
   },
-
-  "include": ["src", "tsup.config.ts", "reset.d.ts"],
-  "exclude": ["node_modules", "dist", "tests"],
+  "include": ["src"],
+  "exclude": ["node_modules", "tests"],
 }
