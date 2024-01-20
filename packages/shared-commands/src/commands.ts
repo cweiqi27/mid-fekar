@@ -1,7 +1,7 @@
-import type { Immutable, ObjectValues } from '~shared-types'
-
 import type { ChatInputCommandInteraction } from './providers/discord.js'
 import { pingCommand } from './ping.js'
+
+import type { Immutable, ObjectValues } from '~shared-types'
 
 export const COMMANDS_LOOKUP = {
   ping: pingCommand,
