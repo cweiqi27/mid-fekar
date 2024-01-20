@@ -1,7 +1,7 @@
 import * as E from 'fp-ts/lib/Either.js'
 import { flow, pipe } from 'fp-ts/lib/function.js'
 import * as TE from 'fp-ts/lib/TaskEither.js'
-import { COMMANDS_LOOKUP } from 'shared-commands/index.js'
+import { COMMANDS_LOOKUP } from 'shared-commands/dist/index.js'
 
 import type { RegisterError } from '@/common/error.js'
 import { env } from '@/common/env.js'
