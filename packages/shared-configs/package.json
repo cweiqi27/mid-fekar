@@ -14,8 +14,7 @@
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^20.9.4",
-    "tsup": "^8.0.1",
-    "typescript": "^5.3.2"
+    "tsup": "^8.0.1"
   },
   "dependencies": {
     "chalk": "^5.3.0",

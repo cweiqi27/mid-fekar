@@ -15,8 +15,7 @@
   "author": "cweiqi27",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^20.9.4",
-    "typescript": "^5.3.2"
+    "@types/node": "^20.9.4"
   },
   "dependencies": {
     "shared-configs": "workspace:*"
