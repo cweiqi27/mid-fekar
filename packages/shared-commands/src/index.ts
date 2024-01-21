@@ -1,2 +1,2 @@
 export * from './commands.js'
-export * from './ping.js'
+export * from './slash-commands.js'
