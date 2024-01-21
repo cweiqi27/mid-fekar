@@ -1,26 +1,28 @@
-import type { ChatInputCommandInteraction } from './providers/discord.js'
-import { pingCommand } from './ping.js'
+import type {
+  ApplicationCommandTypeValues,
+  ChatInputCommandInteraction,
+} from './providers/discord.js'
+import { dictionaryCommand, pingCommand } from './slash-commands.js'
 
 import type { Immutable, ObjectValues } from '~shared-types'
 
 export const COMMANDS_LOOKUP = {
   ping: pingCommand,
-  // lol: pingCommand,
-  // hmm: pingCommand,
-} as const satisfies Record<string, CommandsObj>
+  dictionary: dictionaryCommand,
+} as const satisfies Record<string, SlashCommandStruct>
 
 export type CommandsLookup = typeof COMMANDS_LOOKUP
 export type CommandsLookupKeys = keyof CommandsLookup
 export type CommandsLookupValues = ObjectValues<CommandsLookup>
 
-export type CommandsObj = Immutable<{
+export type SlashCommandStruct = Immutable<{
   data: SlashCommands
   execute: (interaction: ChatInputCommandInteraction) => void
 }>
 
 export type SlashCommands = {
   name: string
-  type: 1
+  type: ApplicationCommandTypeValues
   description: string
 }
 
