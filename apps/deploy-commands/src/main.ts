@@ -12,7 +12,7 @@ import { genericNormalExit } from './common/utils.js'
 import { COMMANDS_LOOKUP } from '~shared-commands/dist/index.js'
 
 const rest = new REST().setToken(env.DISCORD_BOT_TOKEN)
-const commands = COMMANDS_LOOKUP
+const commandsLookup = COMMANDS_LOOKUP
 
 client.once(events.ClientReady, (readyClient) =>
   logger.success(`${readyClient.user.tag} ready.`),
@@ -31,22 +31,24 @@ await pipe(
 const deployCommands = async () => {
   logger.info(
     `Started refreshing ${
-      Object.keys(commands).length
+      Object.keys(commandsLookup).length
     } application (/) commands.`,
   )
+
+  const commandsData = Object.values(commandsLookup).map((cmd) => cmd.data)
 
   await pipe(
     TE.tryCatch<RegisterCommandsError, unknown>(
       () =>
         rest.put(Routes.applicationGuildCommands(env.CLIENT_ID, env.GUILD_ID), {
-          body: [commands.ping.data],
+          body: commandsData,
         }),
       (e) => ({ type: 'RegisterCommandsError', error: E.toError(e) }),
     ),
     TE.match(flow(genericErrorExit), (dat) => {
       pipe(
         `Successfully reloaded ${
-          Object.keys(commands).length
+          Object.keys(commandsLookup).length
         } application (/) comands.`,
         (msg) => `${msg}\n Data: ${JSON.stringify(dat)}`,
         logger.success,
