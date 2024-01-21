@@ -5,7 +5,11 @@
   "scripts": {
     "bot:build": "pnpm --filter bot build",
     "bot:start": "pnpm --filter bot start",
-    "bot:dev": "pnpm --filter bot dev"
+    "bot:dev": "pnpm --filter bot dev",
+    "deploy-commands:build": "pnpm --filter deploy-commands build",
+    "deploy-commands:start": "pnpm --filter deploy-commands start",
+    "shared-commands:build": "pnpm --filter '~shared-commands' build",
+    "shared-commands:start": "pnpm --filter '~shared-commands' start"
   },
   "keywords": [
     "discord-bot",
