@@ -1,9 +1,5 @@
-import { logger } from './logger.js'
+export const genericErrorInteractionReply =
+  'Oops! Something went wrong!' as const
 
-export const logAndReturn =
-  (logMessage?: string) =>
-  <T>(arg: T) => {
-    logMessage && logger.info(logMessage)
-    logger.info(arg)
-    return arg
-  }
+export type JSONParseError = { type: 'JSONError'; error: Error }
+export type SchemaError = { type: 'SchemaError'; error: Error }

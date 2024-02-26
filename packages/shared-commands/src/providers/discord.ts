@@ -31,3 +31,6 @@ export const APPLICATION_COMMAND_TYPE = {
 export type ApplicationCommandType = typeof APPLICATION_COMMAND_TYPE
 export type ApplicationCommandTypeKeys = keyof ApplicationCommandType
 export type ApplicationCommandTypeValues = ObjectValues<ApplicationCommandType>
+
+export type InteractionResponse<T extends boolean> =
+  Discord.InteractionResponse<T>

@@ -1,2 +1,2 @@
-export * from './commands.js'
-export * from './slash-commands.js'
+export * from './helpers/commands.helper.js'
+export * from './helpers/slash-commands.helper.js'
