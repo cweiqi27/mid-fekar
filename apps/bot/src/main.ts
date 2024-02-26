@@ -6,6 +6,7 @@ import type { LoginError } from './common/error.js'
 import { env } from './common/env.js'
 import { genericErrorExit } from './common/error.js'
 import { logger } from './common/logger.js'
+import { remindDbd } from './helpers/cron/dbd-reminder.helper.js'
 import { interactionCreate } from './helpers/interaction/interaction.helper.js'
 import { client, events } from './providers/discord.js'
 
@@ -24,3 +25,4 @@ await pipe(
 )()
 
 interactionCreate
+remindDbd
