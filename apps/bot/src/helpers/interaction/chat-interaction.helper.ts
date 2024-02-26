@@ -1,6 +1,7 @@
 import * as E from 'fp-ts/lib/Either.js'
 import { flow, pipe } from 'fp-ts/lib/function.js'
 
+import type { CommandError } from '@/common/error.js'
 import type {
   CacheType,
   ChatInputCommandInteraction,
@@ -32,15 +33,14 @@ export const chatInputInteractionCreate = (
     combinedOpts,
     E.bimap(
       (dat) => dat,
-      ({ chatInput, command }) => {
+      ({ chatInput, command }) =>
         pipe(
           command,
-          E.match(flow(notRecognizedCommandAction), (cmd) => {
-            logger.info(`Executing command: ${cmd}`)
+          E.bimap(flow(unrecognizedCommand), (cmd) => {
+            logger.info(`Executing command: ${cmd}...`)
             return pipe(chatInput, COMMANDS_LOOKUP[cmd].execute)
           }),
-        )
-      },
+        ),
     ),
   )
 }
@@ -62,6 +62,7 @@ const isRecognizedChatInputCommand = (
     E.fromPredicate(isRecognizedCommand, (dat) => dat),
   )
 
-const notRecognizedCommandAction = (cmd: string) => {
-  pipe(`${cmd} is not a recognized command!`, logger.error)
-}
+const unrecognizedCommand = (cmd: string): CommandError => ({
+  type: 'CommandError',
+  error: E.toError(`${cmd} is not a recognized command!`),
+})
