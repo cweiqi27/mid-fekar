@@ -1,8 +1,11 @@
+import type * as T from 'fp-ts/lib/Task.js'
+
 import type {
   ApplicationCommandTypeValues,
   ChatInputCommandInteraction,
-} from './providers/discord.js'
-import { dictionaryCommand, pingCommand } from './slash-commands.js'
+  InteractionResponse,
+} from '@/providers/discord.js'
+import { dictionaryCommand, pingCommand } from './slash-commands.helper.js'
 
 import type { Immutable, ObjectValues } from '~shared-types'
 
@@ -17,7 +20,9 @@ export type CommandsLookupValues = ObjectValues<CommandsLookup>
 
 export type SlashCommandStruct = Immutable<{
   data: SlashCommands
-  execute: (interaction: ChatInputCommandInteraction) => void
+  execute: (
+    interaction: ChatInputCommandInteraction,
+  ) => T.Task<Promise<InteractionResponse<boolean>>>
 }>
 
 export type SlashCommands = {
